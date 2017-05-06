@@ -8,7 +8,6 @@
   IconController.$inject = ["iconService"];
 
   function IconController(iconService){
-    console.clear();
     var vm = this;
     vm.msg = "Hey it works";
     vm.icons = "";
