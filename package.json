@@ -1,0 +1,26 @@
+{
+  "name": "better-font-awesome-search",
+  "version": "0.1.0",
+  "description": "Search for Font Awesome got more Awesome. Click to copy and toggle options quickly.",
+  "main": "index.html",
+  "scripts": {
+    "test": null
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/helloimjag/Better-Font-Awesome-Search.git"
+  },
+  "author": "JAG",
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-cssmin": "^2.0.0",
+    "grunt-contrib-htmlmin": "^2.3.0",
+    "grunt-contrib-uglify": "^2.2.0",
+    "grunt-injector": "^1.1.0",
+    "grunt-remove-html-comments": "^1.0.0",
+    "grunt-stripcomments": "^0.7.2"
+  }
+}
