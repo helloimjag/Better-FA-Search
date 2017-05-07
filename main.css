@@ -80,11 +80,11 @@ body {
 }
 
 .icons-full {
-    max-height: 80vh;
+    max-height: 76.5vh;
 }
 
 .icons-options {
-    max-height: 60vh;
+    max-height: 66vh;
 }
 
 .box {
@@ -142,6 +142,20 @@ body {
 
 .option-row .option {
     margin-right: 15px;
+}
+
+#sign{
+  text-align: center;
+  padding:2vh;
+}
+
+#sign a{
+  color:#172A3A;
+  opacity: .5;
+  text-decoration: none;
+}
+#sign a:hover{
+  opacity: 1;
 }
 
 @media screen and (max-width: 68em) {
