@@ -14,7 +14,7 @@
 
     function getIcons(){
       return $http
-      .get("/fa/fa.json")
+      .get("fa/fa.json")
       .then(iconGet)
       .catch(iconFail);
 
