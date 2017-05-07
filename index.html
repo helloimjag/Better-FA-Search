@@ -11,7 +11,7 @@
 
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400" rel="stylesheet">
-
+    <link rel="icon" href="favicon.ico"  type="image/x-icon">
     <!-- injector:css -->
     <link rel="stylesheet" href="main.css">
     <!-- endinjector -->
@@ -21,7 +21,7 @@
     <div class="container" ng-controller="IconController as vm">
         <div id="search">
             <i id="search-icon" class="fa fa-search"></i>
-            <input type="text" id="searchIcons" ng-model="iconSearch" placeholder="Search icons...">
+            <input type="text" id="searchIcons" ng-model="iconSearch" placeholder="Better Font Awesome Search...">
         </div>
         <div id="options">
             <div id="option-menu">
@@ -53,7 +53,7 @@
         </div>
         <!-- ng class: {{(vm.mode==='options')? 'icons-options' : 'icons-full'}} -->
         <div id="icons" ng-class="(vm.mode==='options')? 'icons-options' : 'icons-full'">
-            <div class="box" ng-class="{'box-html': $parent.vm.mode !=='class', 'box-class': $parent.vm.mode ==='class'}" ng-repeat="icon in vm.icons | filter: iconSearch">
+            <div class="box" ng-class="{'box-html': $parent.vm.mode !=='class', 'box-class': $parent.vm.mode ==='class'}" ng-repeat="icon in vm.icons | filter: {name:iconSearch}">
                 <i id="{{icon.name}}-icon-copy" class="icon fa fa-{{icon.name}} {{$parent.vm.extraClasses}}" data-clipboard-target="#{{icon.name}}-icon-copy" data-copy-text="{{$parent.vm.createEntity(icon.code)}}"></i>
                 <div id="{{icon.name}}-name" data-clipboard-target="#{{icon.name}}-name" data-copy-text=".fa .fa-{{icon.name}}" class="icon-name" ng-show="$parent.vm.mode==='class'">
                     fa-{{icon.name}}
@@ -66,6 +66,9 @@
                 </div>
                 <!-- data-copy-text='<i class="fa fa-{{icon.name}}" aria-hidden="{{$parent.vm.ariaHidden? "true" : "false"}}"></i>' -->
             </div>
+        </div>
+        <div>
+          HELLOIMJAG
         </div>
     </div>
 
