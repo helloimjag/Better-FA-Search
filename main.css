@@ -144,18 +144,19 @@ body {
     margin-right: 15px;
 }
 
-#sign{
-  text-align: center;
-  padding:2vh;
+#sign {
+    text-align: center;
+    padding: 2vh;
 }
 
-#sign a{
-  color:#172A3A;
-  opacity: .5;
-  text-decoration: none;
+#sign a {
+    color: #172A3A;
+    opacity: .5;
+    text-decoration: none;
 }
-#sign a:hover{
-  opacity: 1;
+
+#sign a:hover {
+    opacity: 1;
 }
 
 @media screen and (max-width: 68em) {

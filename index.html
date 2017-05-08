@@ -11,13 +11,34 @@
 
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400" rel="stylesheet">
-    <link rel="icon" href="favicon.ico"  type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
     <!-- injector:css -->
     <link rel="stylesheet" href="main.css">
     <!-- endinjector -->
+
+    <!-- IMPORTANT CSS -->
+    <style>
+      #overlay{ position: fixed; width:100%; height:100%; background:rgba(23, 42, 58, .8); z-index:100; top:0; left:0; } #intro{ background:#fff; width:700px; height:auto; border-radius: 5px; padding:10px; box-sizing: border-box; position: absolute; z-index: 101;
+      left:50%; top:50%; transform: translate(-50%, -50%); } #close, #intro h1{ text-align: center; margin-bottom:1.2em; } #intro ul{ list-style: none; opacity: .7; font-size:1.1em; } #intro li{ margin:1em 0; } #close{ margin-top:2em; font-size:1.2em; } #close
+      span{ padding:.3em 1em; border-radius: 5px; } #close span:hover{ background:rgba(23, 42, 58, 1);; color:#fff; cursor: pointer; }
+    </style>
 </head>
 
 <body ng-app="fa">
+    <div id="overlay" ng-hide="intro" ng-click="intro=!intro"></div>
+    <div id="intro" ng-hide="intro">
+      <h1>Better Font Awesome Search</h1>
+
+      <ul>
+        <li>Click icon to canvasopy</li>
+        <li>Click text to copy class names ( .fa .fa-font-awesome )</li>
+        <li>Click HTML to switch text to HTML snippet</li>
+        <li>Click Options to apply Font Awesome styles ( border, fw, spin, pulse... )</li>
+      </ul>
+      <div id="close">
+        <span ng-click="intro=!intro">Got It!</span>
+      </div>
+    </div>
     <div class="container" ng-controller="IconController as vm">
         <div id="search">
             <i id="search-icon" class="fa fa-search"></i>
@@ -48,7 +69,7 @@
                     <span class="option" ng-click="vm.addClass('fa-pulse', 'fa-spin')">
                 FA-PULSE
                   </span>
-                  <span> ( Narrow down search before applying. Causes LAG!)</span>
+                    <span> <small>( Narrow search before applying! LAG! )</small></span>
                 </div>
             </div>
         </div>
@@ -69,7 +90,7 @@
             </div>
         </div>
         <div id="sign">
-          <a href="https://github.com/helloimjag">HELLOIMJAG</a>
+            <a href="https://github.com/helloimjag">BY HELLOIMJAG</a>
         </div>
     </div>
 
@@ -82,12 +103,19 @@
     <!-- endinjector -->
 
     <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-      ga('create', 'UA-69241477-4', 'auto');
-      ga('send', 'pageview');
+        (function(i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function() {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+        ga('create', 'UA-69241477-4', 'auto');
+        ga('send', 'pageview');
     </script>
 
 </body>
