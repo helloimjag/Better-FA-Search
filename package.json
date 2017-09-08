@@ -1,6 +1,6 @@
 {
   "name": "better-font-awesome-search",
-  "version": "0.1.0",
+  "version": "0.5.0",
   "description": "Search for Font Awesome got more Awesome. Click to copy and toggle options quickly.",
   "main": "index.html",
   "scripts": {
