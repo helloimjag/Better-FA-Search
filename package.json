@@ -22,5 +22,9 @@
     "grunt-injector": "^1.1.0",
     "grunt-remove-html-comments": "^1.0.0",
     "grunt-stripcomments": "^0.7.2"
+  },
+  "dependencies": {
+    "angular": "^1.6.6",
+    "clipboard": "^1.7.1"
   }
 }
