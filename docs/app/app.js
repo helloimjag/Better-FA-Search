@@ -86,7 +86,6 @@
 
 
     // Tool Tip Rotate
-
     var time = 3000;
     function update(){
       vm.tooltip+=1;
