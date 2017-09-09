@@ -5,6 +5,7 @@ body {
     padding: 0;
     margin-left: calc(100vw - 100%);
     font-size: 16px;
+    font-weight:500;
 }
 
 .container {
@@ -26,7 +27,7 @@ body {
 
 #options {
     margin-top: 20px;
-    padding-bottom: 20px;
+    padding-bottom: 40px;
 }
 
 #searchIcons {
@@ -102,7 +103,7 @@ body {
 }
 
 .box-class {
-    width: 10%;
+    width: 20%;
 }
 
 .box i, .box div {
@@ -115,12 +116,11 @@ body {
     margin-bottom: .5em;
 }
 
-.box div {
-    width: 100%;
-    display: inline-block;
-    font-weight: 300;
-    font-size: .8em;
-    height: 3em;
+.icon-css{
+  width: 100%;
+  display: inline-block;
+  font-weight:400;
+  height: 2em;
 }
 
 .option {
@@ -147,6 +147,7 @@ body {
 #sign {
     text-align: center;
     padding: 2vh;
+    font-weight:500;
 }
 
 #sign a {
@@ -157,6 +158,79 @@ body {
 
 #sign a:hover {
     opacity: 1;
+}
+
+.copy-type{
+  width:50%;
+  float:left;
+  font-size:1.1em;
+  font-weight:500;
+  box-sizing:border-box;
+}
+
+.copy .copy-type:nth-child(1){
+  text-align:right;
+  padding-right:10px;
+}
+.copy .copy-type:nth-child(2){
+  text-align:left;
+  padding-left:10px;
+}
+
+
+/* Hover States */
+.icon:hover,
+.copy-type:hover{
+  color:#3498db
+}
+
+
+/* help-block */
+
+.help-block{
+  position:relative;
+}
+/*.help-text{
+  position:absolute;
+  transform: translate(60%, -100%);
+  background:#3498db;
+  padding:8px;
+  border-radius:3px;
+  color:#fff;
+  font-size:16px;
+  text-align: left;
+  width:auto;
+  white-space:nowrap;
+  font-family: "Montserrat", sans-serif;
+  font-weight:500
+}*/
+
+.help-text{
+  position: absolute;
+  transform: translate(60%, -100%);
+  left: 0;
+  margin-top: 16%;
+  background: #3498db;
+  padding: 8px;
+  border-radius: 3px;
+  color: #fff;
+  font-size: 16px;
+  text-align: left;
+  width: auto;
+  white-space: nowrap;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+}
+
+.help-text-icon{
+  transform: translate(40%, -100%);
+}
+
+.help-text i {
+  color: #3498db;
+  position: absolute;
+  left: -6px;
+  top: 0;
 }
 
 @media screen and (max-width: 68em) {
