@@ -13,10 +13,17 @@
   .module("fa")
   .controller("IconController", IconController);
 
-  IconController.$inject = ["iconService"];
+  IconController.$inject = ["iconService", "$interval"];
 
-  function IconController(iconService){
+  function IconController(iconService, $interval){
     var vm = this;
+
+    vm.set = {
+      intro:false,
+      mode:false
+    }
+    vm.tooltip = 0;
+    vm.intro = true;
     vm.msg = "Hey it works";
     vm.icons = "";
     vm.mode = "class";
@@ -73,8 +80,20 @@
       }
     };
     var clipicon = new Clipboard('.icon', clipsettings);
-    var clipname = new Clipboard('.icon-name', clipsettings);
+    var clipname = new Clipboard('.icon-css', clipsettings);
+    var clipname = new Clipboard('.icon-css-2', clipsettings);
     var cliphtml = new Clipboard('.icon-html', clipsettings);
+
+
+    // Tool Tip Rotate
+    var time = 3000;
+    function update(){
+      vm.tooltip+=1;
+      if(vm.tooltip === 3){
+        vm.tooltip = 0;
+      }
+    }
+    $interval(update,time);
 
   }
 })();

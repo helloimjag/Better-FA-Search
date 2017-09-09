@@ -10,7 +10,7 @@
     <meta name="description" content="Search for Font Awesome got more Awesome. Click to copy and toggle options quickly.">
 
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600" rel="stylesheet">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <!-- injector:css -->
     <link rel="stylesheet" href="main.css">
@@ -24,35 +24,74 @@
     </style>
 </head>
 
-<body ng-app="fa">
-    <div id="overlay" ng-hide="intro" ng-click="intro=!intro"></div>
-    <div id="intro" ng-hide="intro">
+<body ng-app="fa" ng-controller="IconController as vm">
+    <div id="overlay" ng-hide="vm.set.intro" ng-click="vm.set.intro=!vm.set.intro"></div>
+    <div id="intro" ng-hide="vm.set.intro">
       <h1>Better Font Awesome Search</h1>
 
-      <ul>
+
+      <!-- <ul>
         <li>Click icon to copy icon ( Font Awesome as font selected locally )</li>
         <li>Click text to copy class names ( .fa .fa-font-awesome )</li>
         <li>Click HTML to switch text to HTML snippet</li>
         <li>Click Options to apply Font Awesome styles ( border, fw, spin, pulse... )</li>
-      </ul>
+      </ul> -->
+
+      <div
+        class="box"
+      >
+          <i class="icon fa fa-font-awesome ref-one">
+            <div class="help-block" id="help-1" ng-show="vm.tooltip == 0">
+              <div class="help-text help-text-icon">
+                <i class="fa fa-caret-left " aria-hidden="true"></i>
+                CLICK ICON
+              </div>
+            </div>
+          </i>
+          <div>
+              fa-font-awesome
+          </div>
+          <br>
+          <div class="copy">
+            <!-- HTML -->
+            <div
+              class="col-half copy-type icon-html"
+            >HTML
+            <div class="help-block" id="help-2" ng-show="vm.tooltip == 1">
+              <div class="help-text">
+                <i class="fa fa-caret-left " aria-hidden="true"></i>
+                CLICK HTML
+              </div>
+            </div>
+            </div>
+            <!-- CSS -->
+            <div
+              class="col-half copy-type icon-css-2"
+            >&nbsp;&nbsp;CSS
+            <div class="help-block" id="help-3" ng-show="vm.tooltip == 2">
+              <div class="help-text">
+                <i class="fa fa-caret-left " aria-hidden="true"></i>
+                CLICK CSS
+              </div>
+            </div>
+            </div>
+          </div>
+      </div>
       <div id="close">
-        <span ng-click="intro=!intro">Got It!</span>
+        <span ng-click="vm.set.intro=!vm.set.intro">Got It!</span>
       </div>
     </div>
-    <div class="container" ng-controller="IconController as vm">
+    <div class="container" >
         <div id="search">
             <i id="search-icon" class="fa fa-search"></i>
             <input type="text" id="searchIcons" ng-model="iconSearch" placeholder="Better Font Awesome Search...">
         </div>
         <div id="options">
             <div id="option-menu">
-                <span class="option" ng-class="{'option-selected': vm.mode==='class'}" ng-click="vm.mode='class'">CSS</span>
-                <span class="option" ng-class="{'option-selected': vm.mode==='html'}" ng-click="vm.mode='html'">HTML</span>
-                <span class="option" ng-show="vm.mode!=='options'" ng-class="{'option-selected': vm.mode==='options'}" ng-click="vm.mode='options'" style="float:right;">Options</span>
-                <span class="option" ng-show="vm.mode==='options'" ng-class="{'option-selected': vm.mode==='options'}" ng-click="vm.mode='class'" style="float:right;">Options</span>
+                <span class="option" ng-class="{'option-selected': vm.set.mode}" ng-click="vm.set.mode=!vm.set.mode" style="float:right;">OPTIONS</span>
             </div>
 
-            <div ng-show="vm.mode==='options'">
+            <div ng-show="vm.set.mode">
                 <div class="option-row">
                     <span class="option" ng-class="{'option-selected': vm.ariaHidden}" ng-click="vm.ariaHidden=!vm.ariaHidden">ARIA-HIDDEN</span>
                 </div>
@@ -60,7 +99,7 @@
                     <span class="option" ng-class="{'option-selected': vm.faBorder}" ng-click="vm.addClass('fa-border'); vm.faBorder = !vm.faBorder">FA-BORDER</span>
                     <span class="option" ng-class="{'option-selected': vm.faFw}" ng-click="vm.addClass('fa-fw'); vm.faFw = !vm.faFw">FA-FW</span>
                     <span class="option" ng-class="{'option-selected': vm.faList === 'fa-ul'}" ng-click="vm.addClass('fa-ul', 'fa-li');">FA-UL</span>
-                    <span class="option" ng-class="{'option-selected': vm.faList === 'fa-li'}" ng-click="vm.addClass('fa-li', 'fa-ul');">FA-LI</span>
+                    <!-- <span class="option" ng-class="{'option-selected': vm.faList === 'fa-li'}" ng-click="vm.addClass('fa-li', 'fa-ul');">FA-LI</span> -->
                 </div>
                 <div class="option-row">
                     <span class="option" ng-click="vm.addClass('fa-spin', 'fa-pulse')">
@@ -73,20 +112,33 @@
                 </div>
             </div>
         </div>
-        <!-- ng class: {{(vm.mode==='options')? 'icons-options' : 'icons-full'}} -->
         <div id="icons" ng-class="(vm.mode==='options')? 'icons-options' : 'icons-full'">
             <div class="box" ng-class="{'box-html': $parent.vm.mode !=='class', 'box-class': $parent.vm.mode ==='class'}" ng-repeat="icon in vm.icons | filter: {name:iconSearch}">
                 <i id="{{icon.name}}-icon-copy" class="icon fa fa-{{icon.name}} {{$parent.vm.extraClasses}}" data-clipboard-target="#{{icon.name}}-icon-copy" data-copy-text="{{$parent.vm.createEntity(icon.code)}}"></i>
-                <div id="{{icon.name}}-name" data-clipboard-target="#{{icon.name}}-name" data-copy-text=".fa .fa-{{icon.name}}" class="icon-name" ng-show="$parent.vm.mode==='class'">
+                <div
+                  id="{{icon.name}}-css"
+                  data-clipboard-target="#{{icon.name}}-css"
+                  data-copy-text=".fa .fa-{{icon.name}}"
+                  class="icon-css"
+                >
                     fa-{{icon.name}}
                 </div>
-                <div id="{{icon.name}}-html" data-clipboard-target="#{{icon.name}}-html" data-copy-text='<i class="fa fa-{{icon.name}} {{$parent.vm.extraClasses}}" aria-hidden="{{$parent.vm.ariaHidden? "true" : "false"}}"></i>' class="icon-html" ng-show="$parent.vm.mode!=='class'">
-                    &lt;i
-                    <span>
-                      aria-hidden=&#x22;{{$parent.vm.ariaHidden? "true" : "false"}}&#x22;
-                    </span> class="fa fa-{{icon.name}} {{$parent.vm.extraClasses}}"&gt;&lt;/i&gt;
+                <div class="copy">
+                  <!-- HTML -->
+                  <div
+                    id="{{icon.name}}-html"
+                    class="col-half copy-type icon-html"
+                    data-clipboard-target="#{{icon.name}}-html"
+                    data-copy-text='<i class="fa fa-{{icon.name}} {{$parent.vm.extraClasses}}" aria-hidden="{{$parent.vm.ariaHidden? "true" : "false"}}"></i>'
+                  >HTML</div>
+                  <!-- CSS -->
+                  <div
+                    id="{{icon.name}}-css-2"
+                    class="col-half copy-type icon-css-2"
+                    data-clipboard-target="#{{icon.name}}-css-2"
+                    data-copy-text=".fa .fa-{{icon.name}}"
+                  >CSS</div>
                 </div>
-                <!-- data-copy-text='<i class="fa fa-{{icon.name}}" aria-hidden="{{$parent.vm.ariaHidden? "true" : "false"}}"></i>' -->
             </div>
         </div>
         <div id="sign">
