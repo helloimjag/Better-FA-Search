@@ -17,7 +17,6 @@
 
   function IconController(iconService, $interval){
     var vm = this;
-
     vm.set = {
       intro:false,
       mode:false
@@ -45,6 +44,30 @@
       }
       vm.extraClasses = vm.extraClasses.replace(/  +/g, " ");
     };
+    vm.gotit = gotit;
+    function splitcookie(){
+      var i = 0;
+      var cookie = document.cookie.split(';');
+      var obj = {};
+      for(i;i<cookie.length; i++){
+        var cookiehalf = cookie[i].split('=');
+        obj[cookiehalf[0].trim()] = cookiehalf[1];
+      }
+      return obj;
+    }
+    function setCookie(c, v){
+      document.cookie = c+'='+v
+    }
+    function getCookie(c){
+      var cookie = splitcookie();
+      var res = cookie[c];
+      if(!res){
+        return false;
+      }
+      return true;
+    }
+
+    vm.set.intro = getCookie('i');
 
     start();
     function start(){
@@ -94,6 +117,12 @@
       }
     }
     $interval(update,time);
+
+
+
+    function gotit(){
+      setCookie('i',0);
+    }
 
   }
 })();
