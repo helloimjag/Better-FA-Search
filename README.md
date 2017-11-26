@@ -30,5 +30,5 @@ $ grunt build
 ```
 
 ###### Updates
-  - Released (5/5/2017)  https://helloimjag.github.io/Better-Font-Awesome-Search
-  - v1.0 (9/8/2017)  https://helloimjag.github.io/Better-Font-Awesome-Search
+  - Released (5/5/2017)  https://helloimjag.github.io/Better-FA-Search
+  - v1.0 (9/8/2017)  https://helloimjag.github.io/Better-FA-Search
