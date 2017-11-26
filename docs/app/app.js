@@ -13,9 +13,9 @@
     .module("fa")
     .controller("IconController", IconController);
 
-  IconController.$inject = ["$interval", "iconService", "modalService"];
+  IconController.$inject = ["iconService", "modalService"];
 
-  function IconController($interval, iconService, modalService) {
+  function IconController(iconService, modalService) {
     var vm = this;
     vm.intro = modalService.get();
     vm.tooltip = 0;
