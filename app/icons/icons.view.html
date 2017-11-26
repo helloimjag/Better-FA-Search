@@ -1,11 +1,11 @@
 <div class="container">
   <div id="search">
     <i id="search-icon" class="fa fa-search"></i>
-    <input type="text" id="searchIcons" ng-model="iconSearch" placeholder="Better FA Search...">
+    <input type="text" id="searchIcons" ng-model="iconSearch" placeholder="Better FA Search">
   </div>
   <div id="options">
     <div class="option-menu">
-      <span class="option" ng-class="{'option-selected': mode}" ng-click="mode=!mode">OPTIONS</span>
+      <span class="option" ng-class="{'option-selected': mode}" ng-click="mode=!mode">OPTIONS for {{vm.version}}</span>
     </div>
     <div ng-show="mode">
       <div class="option-row">
