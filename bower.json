@@ -1,0 +1,21 @@
+{
+  "name": "better-fa-search",
+  "description": "Searching for Font Awesome icons got more awesome. Click & paste. Toggle options.",
+  "main": "index.html",
+  "authors": [
+    "HELLOIMJAG"
+  ],
+  "license": "UNLICENSED",
+  "homepage": "https://github.com/helloimjag/Better-FA-Search",
+  "private": true,
+  "ignore": [
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "docs"
+  ],
+  "devDependencies": {
+    "components-font-awesome": "^4.7.0"
+  }
+}
