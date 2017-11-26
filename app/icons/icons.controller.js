@@ -87,6 +87,7 @@
     }
 
     function storeIcons(d) {
+      vm.version = d.v;
       vm.icons = d.data;
       return vm.icons;
     }
