@@ -1,0 +1,34 @@
+<div class="container">
+  <div id="search">
+    <i id="search-icon" class="fa fa-search"></i>
+    <input type="text" id="searchIcons" ng-model="iconSearch" placeholder="Better FA Search...">
+  </div>
+  <div id="options">
+    <div class="option-menu">
+      <span class="option" ng-class="{'option-selected': mode}" ng-click="mode=!mode">OPTIONS</span>
+    </div>
+    <div ng-show="mode">
+      <div class="option-row">
+        <!-- Create Options -->
+        <span class="option" ng-class="{'option-selected':  vm.fn.index(o)}" ng-click="vm.addClass(o);" ng-repeat="o in vm.options" ng-bind="o"></span>
+      </div>
+    </div>
+  </div>
+  <div id="icons">
+    <div class="box" ng-repeat="icon in vm.icons | filter: {name:iconSearch}">
+      <!-- Name -->
+      <i id="{{icon.name}}-icon-copy" class="icon fa fa-{{icon.name}}{{vm.extraClasses | intoList}}" data-clipboard-target="#{{icon.name}}-icon-copy" data-copy-text="{{vm.fn.entity(icon.code)}}"></i>
+      <!-- Full CSS name -->
+      <div id="{{icon.name}}-css" data-clipboard-target="#{{icon.name}}-css" data-copy-text=".fa-{{icon.name}}" class="icon-css">
+        {{icon.name}}
+      </div>
+      <div class="copy">
+        <!-- HTML -->
+        <div id="{{icon.name}}-html" class="col-half copy-type icon-html" data-clipboard-target="#{{icon.name}}-html" data-copy-text="<i class=&quot;fa fa-{{icon.name}}{{vm.extraClasses | intoList}}&quot; aria-hidden=&quot;{{vm.ariaHidden}}&quot;></i>">HTML</div>
+        <!-- CSS -->
+        <div id="{{icon.name}}-css-2" class="col-half copy-type icon-css-2" data-clipboard-target="#{{icon.name}}-css-2" data-copy-text=".fa .fa-{{icon.name}}">CSS</div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
