@@ -135,16 +135,21 @@ body {
 .option {
     opacity: .5;
     cursor: pointer;
+    user-select: none;
+    text-transform: uppercase;
 }
 
 .option-selected {
     opacity: 1;
 }
 
-#option-menu {
-    margin-bottom: 10px;
+.option-menu {
+  width: 100%;
 }
-
+.option-menu span{
+  width: 100%;
+}
+.option-menu,
 .option-row {
     padding: 5px 0;
 }
@@ -191,6 +196,7 @@ body {
 
 
 /* Hover States */
+.icon-css:hover,
 .icon:hover,
 .copy-type:hover{
   color:#3498db
