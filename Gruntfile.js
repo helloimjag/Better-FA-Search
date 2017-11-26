@@ -3,7 +3,7 @@ module.exports = function(grunt) {
     cssmin: {
       maincss: {
         files: [{
-          src: ["main.css"],
+          src: "main.css",
           dest: "docs/main.min.css"
         }]
       }
@@ -24,9 +24,18 @@ module.exports = function(grunt) {
         files: {
           "docs/app/app.min.js": ["docs/app/app.js"]
         }
+      },
+      fajson: {
+        files: {
+          "docs/fa/fa.json": ["docs/fa/fa.json"]
+        }
       }
     },
     copy: {
+      views: {
+        src: "app/icons/icons.view.html",
+        dest: "docs/app/icons/icons.view.html"
+      },
       moveindex: {
         src: "index.html",
         dest: "docs/index.html"
@@ -35,10 +44,6 @@ module.exports = function(grunt) {
         src: "fa/fa.json",
         dest: "docs/fa/fa.json"
       },
-      views: {
-        src: "app/icons/icons.view.html",
-        dest: "docs/app/icons"
-      }
     },
     injector: {
       options: {
@@ -49,8 +54,6 @@ module.exports = function(grunt) {
         files: {
           "index.html": [
             "main.css",
-            "node_modules/angular/angular.min.js",
-            "node_modules/clipboard/dist/clipboard.min.js",
             "app/*.js",
             "app/*/*.js"
           ]
@@ -79,8 +82,9 @@ module.exports = function(grunt) {
           collapseWhitespace: true
         },
         files: {
-          "docs/index.html": "docs/index.html",
-          "docs/app/icons/icons.view.html": "docs/app/icons/icons.view.html"
+          "docs/index.html": "docs/index.html"
+          // ,
+          // "docs/app/icons/icons.view.html": "docs/app/icons/icons.view.html"
         }
       }
     }
@@ -115,6 +119,8 @@ module.exports = function(grunt) {
   grunt.registerTask("default", "Saying Hello", function(arg) {
     grunt.log.writeln("----------------------------------------");
     grunt.log.writeln("----------- HELLO DEVELOPER! -----------");
+    grunt.log.writeln("----------------------------------------");
+    grunt.log.writeln("https://github.com/helloimjag/Better-FA-Search");
     grunt.log.writeln("----------------------------------------");
 
   });
