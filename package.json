@@ -3,9 +3,6 @@
   "version": "1.0.0",
   "description": "Searching for Font Awesome icons got more awesome. Click & paste. Toggle options.",
   "main": "index.html",
-  "scripts": {
-    "test": null
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/helloimjag/Better-Font-Awesome-Search.git"
