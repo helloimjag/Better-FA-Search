@@ -36,15 +36,23 @@ Font Awesome 4.7.0 · Created by Dave Gandy
 https://five.fontawesome.io
 
 
-### Dev
+### Dev Commands
 
 #### Starting Up
 ```sh
 $ npm install
 ```
-Commands
 
-#### Load new assets or update for dev
+```sh
+$ bower install
+```
+
+#### Create JSON file to display icons
+```sh
+$ node fa/json
+```
+
+#### Inject Assets
 ```sh
 $ grunt dev
 ```
