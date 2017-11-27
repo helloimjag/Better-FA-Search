@@ -2,7 +2,7 @@
 
 // This file goes through the Font Awesome css file and fetches fa-{name} & html entity code
 var fs = require('fs');
-var fromName = "../bower_components/components-font-awesome/css/font-awesome.css";
+var fromName = "bower_components/components-font-awesome/css/font-awesome.css";
 
 function readCss(data) {
   function getVersion(data) {
@@ -51,7 +51,7 @@ function readCss(data) {
         printFa(data[i]);
       }
 
-      createFile("fa.json", JSON.stringify(faa, null, "\t"));
+      createFile("fa/fa.json", JSON.stringify(faa, null, "\t"));
     }
   }
   matchText(data);
