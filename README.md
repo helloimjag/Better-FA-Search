@@ -8,24 +8,22 @@ Searching for Font Awesome icons got more awesome. Click & paste. Toggle options
   - Click the name to get the class name.
   - Toggle options for border, fw, li and others.
 
-### html
+#### HTML
 ```html
- <i class="fa fa-font-awesome aria-hidden" aria-hidden="true"></i>
+  <i class="fa fa-font-awesome aria-hidden" aria-hidden="true"></i>
 ```
 
-### css
+#### CSS
 ```txt
- .fa .fa-font-awesome
+  .fa .fa-font-awesome
 ```
-
-### css name
+#### CSS Name
 ```txt
   .fa-font-awesome
 ```
-
+#### Icon
 ```txt
  = f286
-
 Remember to change font to FontAwesome to view.
 ```
 
@@ -40,18 +38,18 @@ https://five.fontawesome.io
 
 ### Dev
 
-Starting Up
+#### Starting Up
 ```sh
 $ npm install
 ```
 Commands
 
-Load new assets or update for dev
+#### Load new assets or update for dev
 ```sh
 $ grunt dev
 ```
 
-Load new assets or update for GitHub Pages
+#### Load new assets or update for GitHub Pages
 ```sh
 $ grunt build
 ```
