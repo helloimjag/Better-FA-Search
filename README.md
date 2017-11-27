@@ -8,14 +8,17 @@ Searching for Font Awesome icons got more awesome. Click & paste. Toggle options
   - Click the name to get the class name.
   - Toggle options for border, fw, li and others.
 
+### html
 ```html
  <i class="fa fa-font-awesome aria-hidden" aria-hidden="true"></i>
 ```
 
+### css
 ```txt
  .fa .fa-font-awesome
 ```
 
+### css name
 ```txt
   .fa-font-awesome
 ```
@@ -28,6 +31,7 @@ Remember to change font to FontAwesome to view.
 
 ### Font Awesome
 http://fontawesome.io/
+
 Font Awesome 4.7.0 · Created by Dave Gandy
 
 ### Go meet Font Awesome 5
