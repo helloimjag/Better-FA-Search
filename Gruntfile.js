@@ -82,9 +82,8 @@ module.exports = function(grunt) {
           collapseWhitespace: true
         },
         files: {
-          "docs/index.html": "docs/index.html"
-          // ,
-          // "docs/app/icons/icons.view.html": "docs/app/icons/icons.view.html"
+          "docs/index.html": "docs/index.html",
+          "docs/app/icons/icons.view.html": "docs/app/icons/icons.view.html"
         }
       }
     }
