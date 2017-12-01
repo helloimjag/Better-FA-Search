@@ -124,6 +124,10 @@ body {
   transform: translateX(-50%);
 }
 
+.icon-entity{
+  margin-bottom:3px;
+}
+
 .icon-css {
   width: 100%;
   display: inline-block;
@@ -196,8 +200,10 @@ body {
 }
 
 /* Hover States */
-
-.icon-css:hover, .icon:hover, .copy-type:hover {
+.icon:hover,
+.icon-css:hover,
+.copy-type:hover,
+.icon-entity:hover{
   color: #3498db
 }
 
