@@ -108,8 +108,7 @@ module.exports = function(grunt) {
     "concat:js",
     "cssmin:maincss",
     "uglify:appjs",
-    "copy:moveindex",
-    "copy:fajson",
+    "copy",
     "injector:build",
     "removeHtmlComments:cleanhtml",
     "htmlmin:build"
