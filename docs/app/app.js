@@ -117,6 +117,7 @@
     var cssname = new Clipboard('.icon-css', clipsettings);
     var cssnames = new Clipboard('.icon-css-2', clipsettings);
     var cliphtml = new Clipboard('.icon-html', clipsettings);
+    var iconentity = new Clipboard('.icon-entity', clipsettings);
 
   }
 })();
