@@ -19,11 +19,14 @@
       <!-- Entity -->
       <div id="{{icon.name}}-entity" class="txt-c entity-name" data-clipboard-target="#{{icon.name}}-entity" data-copy-text="{{icon.code}}"><small>{{icon.code}}</small></div>
       <!-- Icon -->
-      <div id="{{icon.name}}-icon-copy" class="entity" data-clipboard-target="#{{icon.name}}-icon-copy" data-copy-text="{{vm.fn.entity(icon.code)}}">
+      <div id="{{icon.name}}-icon-copy"
+        class="entity"
+        data-clipboard-target="#{{icon.name}}-icon-copy"
+        data-copy-text="{{vm.fn.entity(icon.code)}}">
         <i class="fa fa-{{icon.name}}{{vm.extraClasses | intoList}}"></i>
       </div>
       <!-- CSS name -->
-      <div id="{{icon.name}}-css" data-clipboard-target="#{{icon.name}}-css" data-copy-text=".fa-{{icon.name}}" class="css" ng-bind="icon.name"></div>
+      <div id="{{icon.name}}-css" data-clipboard-target="#{{icon.name}}-css" data-copy-text="{{icon.name}}" class="css" ng-bind="icon.name"></div>
       <!-- HTML -->
       <div id="{{icon.name}}-html" class="col-half copy-type html" data-clipboard-target="#{{icon.name}}-html" data-copy-text="<i class=&quot;fa fa-{{icon.name}}{{vm.extraClasses | intoList}}&quot; aria-hidden=&quot;{{vm.ariaHidden}}&quot;></i>">HTML</div>
       <!-- CSS full name -->
