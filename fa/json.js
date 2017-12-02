@@ -2,7 +2,9 @@
 
 // This file goes through the Font Awesome css file and fetches fa-{name} & html entity code
 var fs = require('fs');
-var fromName = "bower_components/components-font-awesome/css/font-awesome.css";
+var fromName = "lib/fontawesome/fontawesome.css";
+var argv = require('minimist')(process.argv.slice(2));
+var location = "fa/fa.min.json"
 
 function readCss(data) {
   function getVersion(data) {
@@ -17,8 +19,6 @@ function readCss(data) {
     re = new RegExp(re, 'gmi');
     var matches = data.match(re);
     var v = getVersion(data);
-    console.log('v: ' + v);
-    console.log(matches.length);
     displayCss(matches, v);
   }
 
@@ -50,8 +50,10 @@ function readCss(data) {
       for (i; i < data.length; i++) {
         printFa(data[i]);
       }
-
-      createFile("fa/fa.json", JSON.stringify(faa, null, "\t"));
+      if(argv.o){
+        location = argv.o
+      }
+      createFile(location, faa);
     }
   }
   matchText(data);
@@ -62,9 +64,10 @@ fs.readFile(fromName, "utf8", function(err, data) {
   readCss(data);
 });
 
-function createFile(name, data) {
-  fs.writeFile(name, data, function err(err) {
+function createFile(name, faa) {
+  fs.writeFile(name, JSON.stringify(faa, null, 0), function err(err) {
     if (err) throw err;
-    console.log("File created");
+    console.log("File created: v" + faa.v + ' FontAwesome');
+    console.log("Icons(n): " + faa.data.length);
   });
 }
