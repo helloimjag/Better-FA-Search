@@ -1,40 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <title>Better FA Search</title>
+  <title>Better FA Searchs</title>
   <meta charset="utf-8">
   <meta name="author" content="HELLOIMJAG">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="keywords" content="Font Awesome, Font Icon Search, Copy Icons, Paste Icons">
   <meta name="description" content="Searching for Font Awesome icons got more awesome. Click & paste. Toggle options.">
-
-  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500" rel="stylesheet">
   <link rel="icon" href="favicon.ico" type="image/x-icon">
-  <!-- injector:css -->
-  <link rel="stylesheet" href="main.css">
-  <!-- endinjector -->
-
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="lib/fontawesome/fontawesome.css">
+  <link rel="stylesheet" href="lib/montserrat/montserrat.css">
 </head>
-
 <body ng-app="fa">
   <div ng-include="'app/icons/icons.view.html'" ng-controller="IconController as vm"></div>
   <div class="sign">
     <a href="https://github.com/helloimjag">HELLOIMJAG</a>
   </div>
-
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js"></script>
-
-  <!-- injector:js -->
-  <script src="app/app.js"></script>
-  <script src="app/icons/icons.controller.js"></script>
-  <script src="app/icons/icons.service.js"></script>
-  <script src="app/icons/list.filter.js"></script>
-  <script src="app/icons/modal.service.js"></script>
-  <!-- endinjector -->
-
+  <script src="app/bundle.min.js"></script>
   <script>
     (function(i, s, o, g, r, a, m) {
       i['GoogleAnalyticsObject'] = r;
@@ -50,7 +33,6 @@
     ga('create', 'UA-69241477-4', 'auto');
     ga('send', 'pageview');
   </script>
-
+  <script class="remove_for_production">document.write('<script src="http://'+(location.host || 'localhost').split(':')[0] +':35729/livereload.js?snipver=1"></' + 'script>')</script>
 </body>
-
 </html>
