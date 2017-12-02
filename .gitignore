@@ -3,7 +3,6 @@ fa/css
 bower_components
 .concept.js
 bundle.js
-bundle.min.js
-css
-lib
-docs
+app/icons/bundle.*
+/css
+/lib
