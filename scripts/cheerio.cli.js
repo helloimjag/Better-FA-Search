@@ -1,6 +1,3 @@
-// Convert FA css into JSON
-
-// This file goes through the Font Awesome css file and fetches fa-{name} & html entity code
 var fs = require('fs');
 var path = require('path');
 var cheerio = require('cheerio');
@@ -8,10 +5,8 @@ var argv = require('minimist')(process.argv.slice(2));
 var base = path.resolve();
 
 if(argv._.length > 0){ // Verify Input
-  console.log(argv)
   if(argv.o){
     argv.o = argv.o.split('/').join('\\');
-    // chipchip();
     read(base + '\\'+ argv._[0])
   }else{
     exit();
