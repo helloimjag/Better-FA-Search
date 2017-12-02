@@ -7,6 +7,7 @@ var base = path.resolve();
 if(argv._.length > 0){ // Verify Input
   if(argv.o){
     argv.o = argv.o.split('/').join('\\');
+    // console.log(base + '\\'+ argv.o);
     read(base + '\\'+ argv._[0])
   }else{
     exit();
@@ -17,10 +18,12 @@ if(argv._.length > 0){ // Verify Input
 }
 
 function chipchip(html){
-  var $ = cheerio.load(html);
+  var $ = cheerio.load(html, {
+    decodeEntities: false
+});
   if(argv.r){
     $('.remove_for_production').remove();
-    write(base+'\\'+argv.o+'\\'+argv._[0], $.html());
+    write(base+'\\'+argv.o.split('/').join('\\'), $.html());
   }
 }
 
