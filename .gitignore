@@ -1,3 +1,9 @@
 node_modules
 fa/css
 bower_components
+.concept.js
+bundle.js
+bundle.min.js
+css
+lib
+docs
