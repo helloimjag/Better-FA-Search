@@ -9,13 +9,14 @@
     "url": "https://github.com/helloimjag/Better-FA-Search.git"
   },
   "scripts": {
-    "start": "npm run dev && npm run test:live | http-server -o -c-1 -p 3000 --silent",
+    "start": "npm run dev && npm run test:live & npm run server",
+    "server": "http-server -o -c-1 -p 3000 --silent",
     "test:live": "livereload",
     "dev": "npm run dev:js && npm run dev:sass",
     "dev:js": "browserify app/app.js -o app/bundle.js",
-    "dev:sass": "node-sass --output-style expanded sass/main.sass css/main.css",
+    "dev:sass": "node-sass -w --output-style expanded sass/main.sass css/main.css",
     "prod": "npm run prod:js & npm run prod:sass & npm run prod:html & prod:lib",
-    "prod:js": "uglify app/bundle.min.js -o docs/app/bundle.min.js",
+    "prod:js": "uglifyjs app/bundle.js -o docs/app/bundle.js",
     "prod:lib": "cpr lib docs/lib -o",
     "prod:sass": "node-sass --output-style compressed sass/main.sass docs/css/main.css",
     "prod:html": "npm run prod:html:clean && npm run prod:html:min",

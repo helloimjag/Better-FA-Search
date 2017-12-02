@@ -17,9 +17,9 @@
   <div class="icons">
     <div class="icon" ng-repeat="icon in vm.icons | filter: {name:iconSearch}">
       <!-- Entity -->
-      <div id="{{icon.name}}-entity" class="txt-c entity" data-clipboard-target="#{{icon.name}}-entity" data-copy-text="{{icon.code}}"><small>{{icon.code}}</small></div>
+      <div id="{{icon.name}}-entity" class="txt-c entity-name" data-clipboard-target="#{{icon.name}}-entity" data-copy-text="{{icon.code}}"><small>{{icon.code}}</small></div>
       <!-- Icon -->
-      <div id="{{icon.name}}-icon-copy" class="icon" data-clipboard-target="#{{icon.name}}-icon-copy" data-copy-text="{{vm.fn.entity(icon.code)}}">
+      <div id="{{icon.name}}-icon-copy" class="entity" data-clipboard-target="#{{icon.name}}-icon-copy" data-copy-text="{{vm.fn.entity(icon.code)}}">
         <i class="fa fa-{{icon.name}}{{vm.extraClasses | intoList}}"></i>
       </div>
       <!-- CSS name -->

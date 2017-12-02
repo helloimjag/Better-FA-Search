@@ -99,10 +99,10 @@ module.exports = function($interval, iconService, modalService) {
   };
 
   var Clipboard = require('clipboard');
-  var icon = new Clipboard('.icon', clipsettings);
-  var cssname = new Clipboard('.icon-css', clipsettings);
-  var cssnames = new Clipboard('.icon-css-2', clipsettings);
-  var cliphtml = new Clipboard('.icon-html', clipsettings);
-  var iconentity = new Clipboard('.icon-entity', clipsettings);
+  var entityname = new Clipboard('.entity-name', clipsettings);
+  var entity = new Clipboard('.entity', clipsettings);
+  var css = new Clipboard('.css', clipsettings);
+  var html = new Clipboard('.html', clipsettings);
+  var cssFull = new Clipboard('.css-full', clipsettings);
 
 }

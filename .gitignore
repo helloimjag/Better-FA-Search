@@ -2,7 +2,5 @@ node_modules
 fa/css
 bower_components
 .concept.js
-bundle.js
-app/icons/bundle.*
 /css
 /lib
