@@ -14,23 +14,28 @@
     "dev": "npm run dev:js && npm run dev:sass",
     "dev:js": "browserify app/app.js -o app/bundle.js",
     "dev:sass": "node-sass --output-style expanded sass/main.sass css/main.css",
-    "prod": "npm run prod:min & npm run prod:sass",
-    "prod:min": "browserify app/app.js | uglifyjs -c > app/bundle.min.js",
-    "prod:sass": "node-sass --output-style compressed sass/main.sass css/main.css",
+    "prod": "npm run prod:js & npm run prod:sass & npm run prod:html & prod:lib",
+    "prod:js": "cpr -o app docs/app & cpr 'app/bundle.min.js' 'docs/app/bundle.min.js'",
+    "prod:lib": "cpr lib docs/lib",
+    "prod:sass": "node-sass --output-style compressed sass/main.sass docs/css/main.css",
     "prod:html": "npm run prod:html:clean && npm run prod:html:min",
     "prod:html:clean": "node scripts/cheerio.cli.js index.html -o docs -r",
     "prod:html:min": "html-minifier --remove-comments --collapse-whitespace -o docs/index.html index.html",
+    "prod:html:views:min": "html-minifier --remove-comments --collapse-whitespace -o docs/index.html index.html",
     "start:prod": "npm run prod && cd docs  && http-server -o -c-1 -p 3000 --silent",
     "fa": "node fa/json",
-    "fa:prod": "node fa/json -o docs/fa.min.json",
+    "fa:prod": "node fa/json -o docs/fa/fa.json",
+    "lib": "npm run lib:fonts && npm run lib:fonts:fontawesome",
     "lib:fonts": "node-sass --output-style expanded node_modules/font-awesome/scss/font-awesome.scss lib/fontawesome/fontawesome.css",
-    "lib:fonts:fontawesome": "copy node_modules/font-awesome/fonts/* lib/fonts"
+    "lib:fonts:fontawesome": "copy node_modules/font-awesome/fonts/* lib/fonts",
+    "test": "html-minifier --remove-comments --collapse-whitespace -o docs/app/icons/icons.view.html app/icons/icons.view.html"
   },
   "license": "UNLICENSED",
   "devDependencies": {
     "browserify": "^14.5.0",
     "cheerio": "^1.0.0-rc.2",
     "concat": "^1.0.3",
+    "html-minifier": "^3.5.7",
     "http-server": "^0.10.0",
     "livereload": "^0.6.3",
     "node-sass": "^4.7.2",
@@ -39,7 +44,6 @@
   "dependencies": {
     "angular": "^1.6.7",
     "clipboard": "^1.7.1",
-    "copy": "^0.3.1",
     "font-awesome": "^4.7.0",
     "minimist": "^1.2.0"
   }
