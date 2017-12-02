@@ -39,8 +39,10 @@ function readCss(data) {
           .replace(/ /g, "")
           .replace("\\", "")
           .replace("\n", "")
+          .replace("f","")
           .trim()
           .split("content:");
+        console.log(fa);
         var obj = {};
         obj.name = fa[0];
         obj.code = fa[1];
@@ -53,6 +55,7 @@ function readCss(data) {
       if(argv.o){
         location = argv.o
       }
+      // console.log(faa);
       createFile(location, faa);
     }
   }
@@ -65,7 +68,7 @@ fs.readFile(fromName, "utf8", function(err, data) {
 });
 
 function createFile(name, faa) {
-  fs.writeFile(name, JSON.stringify(faa, null, 0), function err(err) {
+  fs.writeFile(name, JSON.stringify(faa), function err(err) {
     if (err) throw err;
     console.log("File created: v" + faa.v + ' FontAwesome');
     console.log("Icons(n): " + faa.data.length);
