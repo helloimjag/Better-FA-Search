@@ -1,23 +1,46 @@
 {
-  "name": "better-font-awesome-search",
+  "name": "better-fa-search",
   "version": "1.0.0",
   "description": "Searching for Font Awesome icons got more awesome. Click & paste. Toggle options.",
   "main": "index.html",
+  "author": "HELLOIMJAG",
   "repository": {
     "type": "git",
-    "url": "https://github.com/helloimjag/Better-Font-Awesome-Search.git"
+    "url": "https://github.com/helloimjag/Better-FA-Search.git"
   },
-  "author": "JAG",
+  "scripts": {
+    "start": "npm run dev && npm run test:live | http-server -o -c-1 -p 3000 --silent",
+    "test:live": "livereload",
+    "dev": "npm run dev:js && npm run dev:sass",
+    "dev:js": "browserify app/app.js -o app/bundle.js",
+    "dev:sass": "node-sass --output-style expanded sass/main.sass css/main.css",
+    "prod": "npm run prod:min & npm run prod:sass",
+    "prod:min": "browserify app/app.js | uglifyjs -c > app/bundle.min.js",
+    "prod:sass": "node-sass --output-style compressed sass/main.sass css/main.css",
+    "prod:html": "npm run prod:html:clean && npm run prod:html:min",
+    "prod:html:clean": "node scripts/cheerio.cli.js index.html -o docs -r",
+    "prod:html:min": "html-minifier --remove-comments --collapse-whitespace -o docs/index.html index.html",
+    "start:prod": "npm run prod && cd docs  && http-server -o -c-1 -p 3000 --silent",
+    "fa": "node fa/json",
+    "fa:prod": "node fa/json -o docs/fa.min.json",
+    "lib:fonts": "node-sass --output-style expanded node_modules/font-awesome/scss/font-awesome.scss lib/fontawesome/fontawesome.css",
+    "lib:fonts:fontawesome": "copy node_modules/font-awesome/fonts/* lib/fonts"
+  },
   "license": "UNLICENSED",
   "devDependencies": {
-    "grunt": "^1.0.1",
-    "grunt-contrib-concat": "^1.0.1",
-    "grunt-contrib-copy": "^1.0.0",
-    "grunt-contrib-cssmin": "^2.0.0",
-    "grunt-contrib-htmlmin": "^2.3.0",
-    "grunt-contrib-uglify": "^2.2.0",
-    "grunt-injector": "^1.1.0",
-    "grunt-remove-html-comments": "^1.0.0",
-    "grunt-stripcomments": "^0.7.2"
+    "browserify": "^14.5.0",
+    "cheerio": "^1.0.0-rc.2",
+    "concat": "^1.0.3",
+    "http-server": "^0.10.0",
+    "livereload": "^0.6.3",
+    "node-sass": "^4.7.2",
+    "uglify-js": "^3.2.0"
+  },
+  "dependencies": {
+    "angular": "^1.6.7",
+    "clipboard": "^1.7.1",
+    "copy": "^0.3.1",
+    "font-awesome": "^4.7.0",
+    "minimist": "^1.2.0"
   }
 }
