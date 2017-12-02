@@ -12,9 +12,10 @@
     "start": "npm run dev && npm run test:live & npm run server",
     "server": "http-server -o -c-1 -p 3000 --silent",
     "test:live": "livereload",
-    "dev": "npm run dev:js && npm run dev:sass",
+    "dev": "npm run dev:js && npm run dev:sass && npm run dev:views",
     "dev:js": "browserify app/app.js -o app/bundle.js",
-    "dev:sass": "node-sass -w --output-style expanded sass/main.sass css/main.css",
+    "dev:sass": "node-sass --output-style expanded sass/main.sass css/main.css",
+    "dev:views": "html-minifier --remove-comments --collapse-whitespace -o docs/app/icons/icons.view.html app/icons/icons.view.html",
     "prod": "npm run prod:js & npm run prod:sass & npm run prod:html & prod:lib",
     "prod:js": "uglifyjs app/bundle.js -o docs/app/bundle.js",
     "prod:lib": "cpr lib docs/lib -o",
@@ -28,8 +29,7 @@
     "fa:prod": "node fa/json -o docs/fa/fa.json",
     "lib": "npm run lib:fonts && npm run lib:fonts:fontawesome",
     "lib:fonts": "node-sass --output-style expanded node_modules/font-awesome/scss/font-awesome.scss lib/fontawesome/fontawesome.css",
-    "lib:fonts:fontawesome": "copy node_modules/font-awesome/fonts/* lib/fonts",
-    "test": "html-minifier --remove-comments --collapse-whitespace -o docs/app/icons/icons.view.html app/icons/icons.view.html"
+    "lib:fonts:fontawesome": "copy node_modules/font-awesome/fonts/* lib/fonts"
   },
   "license": "UNLICENSED",
   "devDependencies": {
